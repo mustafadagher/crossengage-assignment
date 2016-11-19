@@ -1,7 +1,7 @@
 # CrossEngage Assignment
 
 ## Run
-java -jar targer/crossengage-assignment-0.0.1.jar users_file_path  batchSize <optional>
+java -jar target/crossengage-assignment-0.0.1.jar users_file_path  batchSize <optional>
 
 ##### users_file_path: the file path of the users, user entries should be formatted in csv like format
 ##### batchSize: the size of each chunk 
