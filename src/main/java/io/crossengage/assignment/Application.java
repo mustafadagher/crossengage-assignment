@@ -30,6 +30,7 @@ public class Application {
         if (args.length > 1) {
             batchSize = args[1];
         }
+        userEmailController = new UserEmailController();
         userEmailController.sendBatchEmail(filePath, batchSize);
 
     }
