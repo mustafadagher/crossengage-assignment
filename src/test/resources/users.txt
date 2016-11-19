@@ -1,0 +1,15 @@
+mustafa1,m.d@g.c,true
+mustafa2,m.d@g.c,true
+mustafa3,m.d@g.c,false
+mustafa4,m.d@g.c,true
+mustafa5,m.d@g.c,true
+mustafa6,m.d@g.c,false
+mustafa7,m.d@g.c,true
+mustafa8,m.d@g.c,true
+mustafa9,m.d@g.c,false
+mustafa10,m.d@g.c,true
+mustafa11,m.d@g.c,true
+mustafa12,m.d@g.c,true
+mustafa13,m.d@g.c,false
+mustafa14,m.d@g.c,true
+mustafa15,m.d@g.c,false
