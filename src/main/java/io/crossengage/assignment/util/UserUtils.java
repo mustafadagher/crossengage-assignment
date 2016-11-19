@@ -30,7 +30,7 @@ public class UserUtils {
 
         final String username = fields[0].trim();
         final String email = fields[1].trim();
-        final boolean active = fields[2].equalsIgnoreCase("true");
+        final boolean active = fields[2].trim().equalsIgnoreCase("true");
 
         final User user = new User(username, email, active);
         return user;
