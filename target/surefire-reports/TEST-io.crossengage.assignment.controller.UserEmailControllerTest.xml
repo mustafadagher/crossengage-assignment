@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="io.crossengage.assignment.reader.UserFileReaderTest" time="0" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="io.crossengage.assignment.controller.UserEmailControllerTest" time="0.107" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\bin"/>
@@ -61,5 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="io.crossengage.assignment.reader.UserFileReaderTest" name="test" time="0"/>
+  <testcase classname="io.crossengage.assignment.controller.UserEmailControllerTest" name="testSendBatchEmail_NumberFormatException" time="0.107"/>
+  <testcase classname="io.crossengage.assignment.controller.UserEmailControllerTest" name="testSendBatchEmail_FileNotFoundException" time="0"/>
+  <testcase classname="io.crossengage.assignment.controller.UserEmailControllerTest" name="testSendBatchEmail" time="0"/>
 </testsuite>
