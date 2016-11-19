@@ -32,8 +32,12 @@ public class UserEmailController {
      * @param batchSize the batch size
      */
     public void sendBatchEmail(final String filePath, final String batchSize) {
-        init(filePath, batchSize);
-        userReader.read(s -> emailService.sendBatchEmail(s));
+        try {
+            init(filePath, batchSize);
+            userReader.read(s -> emailService.sendBatchEmail(s));
+        } catch (final FileNotFoundException e) {
+            System.out.println("File not found!!");
+        }
     }
 
     /**
@@ -42,7 +46,7 @@ public class UserEmailController {
      * @param filePath the file path
      * @param batchSize the batch size
      */
-    private void init(final String filePath, final String batchSize) {
+    private void init(final String filePath, final String batchSize) throws FileNotFoundException {
 
         Integer size = null;
         try {
@@ -51,12 +55,7 @@ public class UserEmailController {
             System.out.println("Batch Size Argument Format error: will use default size of 1000.");
         }
 
-        try {
-            userReader = new UserFileReader(filePath, size);
-            emailService = new EmailSenderService();
-        } catch (final FileNotFoundException e) {
-            System.out.println("File not found!!");
-            return;
-        }
+        userReader = new UserFileReader(filePath, size);
+        emailService = new EmailSenderService();
     }
 }

@@ -4,6 +4,7 @@
 package io.crossengage.assignment.reader;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -49,6 +50,7 @@ public class UserFileReaderTest {
         testee.read(users -> emailService.sendBatchEmail(users));
         final String output = outContent.toString();
         final String[] lines = output.split("[\\r\\n]+");
+        assertNotNull(lines);
         assertEquals(10, lines.length);
     }
 
