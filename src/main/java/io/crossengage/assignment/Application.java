@@ -6,7 +6,7 @@ package io.crossengage.assignment;
 import io.crossengage.assignment.controller.UserEmailController;
 
 /**
- * @author mustafa.kamel
+ * @author Mustafa Dagher
  *
  */
 public class Application {

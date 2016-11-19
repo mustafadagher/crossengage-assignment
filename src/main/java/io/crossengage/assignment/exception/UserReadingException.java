@@ -5,7 +5,7 @@ package io.crossengage.assignment.exception;
 
 
 /**
- * @author mustafa.kamel
+ * @author Mustafa Dagher
  *
  */
 public class UserReadingException extends SystemException {

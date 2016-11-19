@@ -7,11 +7,19 @@ import io.crossengage.assignment.bo.User;
 import io.crossengage.assignment.exception.InvalidFormatException;
 
 /**
- * @author mustafa.kamel
+ * The Class UserUtils.
  *
+ * @author Mustafa Dagher
  */
 public class UserUtils {
 
+    /**
+     * creates a user object from string.
+     *
+     * @param userString the user string
+     * @return the user
+     * @throws InvalidFormatException the invalid format exception
+     */
     public static User fromString(final String userString) throws InvalidFormatException {
 
         final String[] fields = userString.split(",");

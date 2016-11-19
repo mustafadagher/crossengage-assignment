@@ -4,30 +4,44 @@
 package io.crossengage.assignment.controller;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 
-import io.crossengage.assignment.bo.User;
 import io.crossengage.assignment.reader.UserFileReader;
 import io.crossengage.assignment.reader.UserReader;
 import io.crossengage.assignment.service.EmailSenderService;
 import io.crossengage.assignment.service.EmailService;
 
 /**
- * @author mustafa.kamel
+ * The Class UserEmailController.
  *
+ * @author Mustafa Dagher
  */
 public class UserEmailController {
 
+    /** The user reader. */
     private UserReader userReader;
 
+    /** The email service. */
     private EmailService emailService;
 
+    /**
+     * Send batch email.<BR>
+     * call the {@link UserReader#read} method and passes the {@link EmailService#sendBatchEmail} method to it's
+     * consumer so that the reader reads user file and then sends email to each chunk of users
+     *
+     * @param filePath the file path
+     * @param batchSize the batch size
+     */
     public void sendBatchEmail(final String filePath, final String batchSize) {
         init(filePath, batchSize);
-        final List<User> users = userReader.read();
-        emailService.sendBatchEmail(users);
+        userReader.read(s -> emailService.sendBatchEmail(s));
     }
 
+    /**
+     * Initializes the userReader and emailService.
+     *
+     * @param filePath the file path
+     * @param batchSize the batch size
+     */
     private void init(final String filePath, final String batchSize) {
 
         Integer size = null;

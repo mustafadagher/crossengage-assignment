@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import java.util.function.Consumer;
 
 import io.crossengage.assignment.bo.User;
 import io.crossengage.assignment.exception.EmptyLineException;
@@ -17,8 +18,9 @@ import io.crossengage.assignment.exception.UserReadingException;
 import io.crossengage.assignment.util.UserUtils;
 
 /**
- * @author mustafa.kamel
+ * The Class UserFileReader.
  *
+ * @author Mustafa Dagher
  */
 public class UserFileReader implements UserReader {
 
@@ -40,7 +42,7 @@ public class UserFileReader implements UserReader {
      * @see io.crossengage.assignment.reader.UserReader#read()
      */
     @Override
-    public List<User> read() {
+    public void read(final Consumer<List<User>> sender) {
 
         while (true) {
             try {
@@ -50,10 +52,11 @@ public class UserFileReader implements UserReader {
                 }
 
                 if (queue.batchFull()) {
-                    return queue.flush();
+                    sender.accept(queue.flush());
                 }
             } catch (final EmptyLineException e) {
-                return queue.flush();
+                sender.accept(queue.flush());
+                break;
             } catch (final SystemException e) {
                 if (e instanceof UserReadingException) {
                     System.out.println("Exception while reading the file.");
